@@ -20,14 +20,31 @@ class SignUpForm extends React.Component {
         this.setState({ [event.target.name]: event.target.value });
 
     render() {
-        const { email, password } = this.state;
+        const {firstName, lastName, email, password } = this.state;
         const { handleChange, handleSubmit } = this;
 
         return (
             <div>
+            <input
+                    id="firstNameInput"
+                    name="firstname"
+                    placeholder="First Name"
+                    value={firstName}
+                    onChange={handleChange}
+                />
+                <br />
+                <input
+                    id="lastNameInput"
+                    name="lastname"
+                    placeholder="Last Name"
+                    value={lastName}
+                    onChange={handleChange}
+                />
+                <br />
                 <input
                     id="emailInput"
                     name="email"
+                    placeholder="E-Mail Address"
                     value={email}
                     onChange={handleChange}
                 />
@@ -35,12 +52,13 @@ class SignUpForm extends React.Component {
                 <input
                     id="passwordInput"
                     name="password"
+                    placeholder="Password"
                     type="password"
                     value={password}
                     onChange={handleChange}
                 />
                 <br />
-                <button onClick={handleSubmit}>Sign In</button>
+                <button onClick={handleSubmit}>Sign Up</button>
             </div>
         );
     }

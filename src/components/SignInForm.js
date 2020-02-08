@@ -28,6 +28,7 @@ class SignInForm extends React.Component {
                 <input
                     id="emailInput"
                     name="email"
+                    placeholder="E-Mail Address"
                     value={email}
                     onChange={handleChange}
                 />
@@ -35,6 +36,7 @@ class SignInForm extends React.Component {
                 <input
                     id="passwordInput"
                     name="password"
+                    placeholder="Password"
                     type="password"
                     value={password}
                     onChange={handleChange}
