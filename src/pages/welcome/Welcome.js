@@ -14,15 +14,15 @@ class Welcome extends React.Component {
             <div className="Welcome">
                 <h1>Welcome to Athena </h1>
                 <p>A personal assistant for your menstural cycle</p>
-                <button>
-                    <Link to="/signin">Sign In</Link>
-                </button>
-                <button>
-                    <Link to="/signup">Sign Up</Link>
-                </button>
+                <Link to="/signin">
+                    <button>Sign In</button>
+                </Link>
+                <Link to="/signup">
+                    <button>Sign Up</button>
+                </Link>
                 <br />
                 {/* <Switch> */}
-                
+
                 {/* </Switch> */}
             </div>
         );

@@ -1,7 +1,9 @@
 import React from "react";
-import { Route, Switch } from "react-router-dom";
+import { Route, withRouter, Switch } from "react-router-dom";
 
 import "./App.css";
+
+import API from "./API";
 
 import Welcome from "./pages/welcome/Welcome";
 import SignIn from "./pages/welcome/subpages/SignIn";
@@ -13,7 +15,7 @@ import Journal from "./pages/home/subpages/Journal";
 import Insights from "./pages/home/subpages/Insights";
 import Profile from "./pages/home/subpages/Profile";
 
-// import 404 from "./pages/errors/404";
+import Error404 from "./pages/errors/Error404";
 
 //TODO
 //+ Introduce 404 page and redo route
@@ -21,60 +23,82 @@ import Profile from "./pages/home/subpages/Profile";
 //QUESTIONS
 //? Why does react router not work if you define a new route in a sub component
 class App extends React.Component {
+
     state = {
         email: null
-        // email: "lopeariyo@faker.com"
     };
+
+    signIn = data => {
+        this.setState({ email: data.email });
+        localStorage.token = data.token;
+    };
+
+    signOut = () => {
+        this.setState({ email: null });
+        localStorage.removeItem("token");
+    };
+
+    componentDidMount() {
+        if (localStorage.token) {
+            API.validate()
+                .then(data => {
+                    if (data.error) throw Error(data.error);
+                    this.signIn(data);
+                    this.props.history.push("/inventory");
+                })
+                .catch(error => alert(error));
+        }
+    }
 
     render() {
         return (
             <div className="App">
-                {/* {this.state.email === null ? <Welcome /> : <Home />} */}
                 <Switch>
                     {this.state.email === null ? (
-                        <Route
-                            exact
-                            path="/"
-                            component={props => <Welcome {...props} />}
-                        />
+                        <Route exact path="/" component={Welcome} />
                     ) : (
-                        <Route
-                            exact
-                            path="/"
-                            component={props => <Home {...props} />}
-                        />
+                        <Route exact path="/" component={Home} />
                     )}
                     <Route
                         path="/signin"
-                        component={props => <SignIn {...props} />}
+                        component={props => (
+                            <SignIn {...props} signIn={this.signIn} />
+                        )}
                     />
                     <Route
                         path="/signup"
                         component={props => <SignUp {...props} />}
                     />
+
                     <Route
                         path="/cycle"
-                        component={props => <Cycle {...props} />}
+                        component={props => (
+                            <Cycle {...props} email={this.state.email} />
+                        )}
                     />
                     <Route
                         path="/journal"
-                        component={props => <Journal {...props} />}
+                        component={props => (
+                            <Journal {...props} email={this.state.email} />
+                        )}
                     />
                     <Route
                         path="/insights"
-                        component={props => <Insights {...props} />}
+                        component={props => (
+                            <Insights {...props} email={this.state.email} />
+                        )}
                     />
                     <Route
                         path="/profile"
-                        component={props => <Profile {...props} />}
+                        component={props => (
+                            <Profile {...props} email={this.state.email} />
+                        )}
                     />
-                    <Route
-                        component={() => <h1>Ooops...404 - Page Not Found </h1>}
-                    />
+                    <Route component={Error404} />
                 </Switch>
             </div>
         );
     }
 }
 
-export default App;
+export default withRouter(App);

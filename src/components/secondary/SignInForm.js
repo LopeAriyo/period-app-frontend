@@ -1,5 +1,6 @@
 import React from "react";
 
+import API from "../../API";
 class SignInForm extends React.Component {
     state = {
         email: "",
@@ -7,13 +8,13 @@ class SignInForm extends React.Component {
     };
 
     handleSubmit = () => {
-        //     API.signIn(this.state.email, this.state.password)
-        //       .then(data => {
-        //         if (data.error) throw Error(data.error)
-        //         this.props.signIn(data)
-        //         this.props.history.push('/inventory')
-        //       })
-        //       .catch(error => alert(error))
+        API.signIn(this.state.email, this.state.password)
+            .then(data => {
+                if (data.error) throw Error(data.error);
+                this.props.signIn(data);
+                this.props.history.push("/profile");
+            })
+            .catch(error => alert(error));
     };
 
     handleChange = event =>
