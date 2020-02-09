@@ -1,5 +1,5 @@
 import React from "react";
-import SignUpForm from "../components/SignUpForm.js";
+import SignUpForm from "../../../components/secondary/SignUpForm.js";
 
 class SignUp extends React.Component {
     render() {
@@ -9,7 +9,7 @@ class SignUp extends React.Component {
                 <SignUpForm />
                 {/* <p>-OR-</p>
                 <SignUpWithSocials /> */}
-                 {/* By signing up you accept the Terms of Service and Our Privacy Policy*/}
+                {/* By signing up you accept the Terms of Service and Our Privacy Policy*/}
                 <p> Already have an account? Sign In </p>
             </div>
         );

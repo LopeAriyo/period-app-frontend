@@ -1,0 +1,29 @@
+.NavBar {
+    overflow: hidden;
+    background-color: #BE4155;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+}
+
+.NavBar a {
+    float: left;
+    display: block;
+    color: #F2F2F2;
+    text-align: center;
+    padding: 5%;
+    width: 10%;
+    text-decoration: none;
+    /* font-size: 17px; */
+}
+
+.NavBar a:hover {
+    background: #96285F;
+    color: #FADCCD;
+    cursor: pointer;
+}
+
+.NavBar a.active {
+    background-color: #461432;
+    color: #FADCCD;
+}
