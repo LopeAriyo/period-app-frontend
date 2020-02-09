@@ -7,6 +7,8 @@ class SignIn extends React.Component {
             <div className="SignIn">
                 <h1>Sign In </h1>
                 <SignInForm />
+                {/* <p>-OR-</p>
+                <SignInWithSocials /> */}
                 <p> Don't have an account? Sign Up </p>
             </div>
         );

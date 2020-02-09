@@ -28,7 +28,7 @@ class SignUpForm extends React.Component {
             <input
                     id="firstNameInput"
                     name="firstname"
-                    placeholder="First Name"
+                    placeholder="Enter First Name"
                     value={firstName}
                     onChange={handleChange}
                 />
@@ -36,7 +36,7 @@ class SignUpForm extends React.Component {
                 <input
                     id="lastNameInput"
                     name="lastname"
-                    placeholder="Last Name"
+                    placeholder="Enter Last Name"
                     value={lastName}
                     onChange={handleChange}
                 />
@@ -44,7 +44,7 @@ class SignUpForm extends React.Component {
                 <input
                     id="emailInput"
                     name="email"
-                    placeholder="E-Mail Address"
+                    placeholder="Enter E-Mail Address"
                     value={email}
                     onChange={handleChange}
                 />
@@ -52,7 +52,7 @@ class SignUpForm extends React.Component {
                 <input
                     id="passwordInput"
                     name="password"
-                    placeholder="Password"
+                    placeholder="Create Password"
                     type="password"
                     value={password}
                     onChange={handleChange}

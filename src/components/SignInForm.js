@@ -41,6 +41,7 @@ class SignInForm extends React.Component {
                     value={password}
                     onChange={handleChange}
                 />
+                {/* <p> Forgot Password? </p> */}
                 <br />
                 <button onClick={handleSubmit}>Sign In</button>
             </div>
