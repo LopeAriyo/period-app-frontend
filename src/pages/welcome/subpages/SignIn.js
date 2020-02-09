@@ -1,4 +1,6 @@
 import React from "react";
+import { Link } from "react-router-dom/";
+
 import SignInForm from "../../../components/secondary/SignInForm";
 
 class SignIn extends React.Component {
@@ -9,7 +11,7 @@ class SignIn extends React.Component {
                 <SignInForm />
                 {/* <p>-OR-</p>
                 <SignInWithSocials /> */}
-                <p> Don't have an account? Sign Up </p>
+                <p> Don't have an account? <Link to="/signup">Sign Up</Link> </p>
             </div>
         );
     }

@@ -15,7 +15,7 @@ class Welcome extends React.Component {
                 <h1>Welcome to Athena </h1>
                 <p>A personal assistant for your menstural cycle</p>
                 <button>
-                    <Link to="signin">Sign In</Link>
+                    <Link to="/signin">Sign In</Link>
                 </button>
                 <button>
                     <Link to="/signup">Sign Up</Link>

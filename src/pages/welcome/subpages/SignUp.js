@@ -1,4 +1,6 @@
 import React from "react";
+import {  Link } from "react-router-dom/";
+
 import SignUpForm from "../../../components/secondary/SignUpForm.js";
 
 class SignUp extends React.Component {
@@ -10,7 +12,7 @@ class SignUp extends React.Component {
                 {/* <p>-OR-</p>
                 <SignUpWithSocials /> */}
                 {/* By signing up you accept the Terms of Service and Our Privacy Policy*/}
-                <p> Already have an account? Sign In </p>
+                <p> Already have an account? <Link to="/signin">Sign In</Link> </p>
             </div>
         );
     }

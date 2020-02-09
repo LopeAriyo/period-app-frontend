@@ -22,8 +22,8 @@ import Profile from "./pages/home/subpages/Profile";
 //? Why does react router not work if you define a new route in a sub component
 class App extends React.Component {
     state = {
-        // email: null
-        email: "lopeariyo@faker.com"
+        email: null
+        // email: "lopeariyo@faker.com"
     };
 
     render() {
