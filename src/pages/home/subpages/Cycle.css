@@ -1,0 +1,52 @@
+.CycleCircle {
+    width: 500px;
+    height: 500px;
+    background:#96285f;
+    color: #96285f;
+    border-radius: 50%;
+    border: 2px solid #96285f;
+    margin: 10px 30px;
+    border: none;
+    font-size: 110%;
+    font-size: inherit;
+    font-weight: 700;
+    /* text-transform: uppercase; */
+    text-align: center;
+    letter-spacing: 3px;
+    word-spacing: 5px;
+    position: relative;
+}
+
+.CycleDay {
+    width: 50px;
+    height: 50px;
+    background: #fadccd;
+    color: #96285f;
+    border-radius: 50%;
+    cursor: pointer;
+    margin: 10px 30px;
+    font-size:20px;
+    font-weight: 700;
+    /* text-transform: uppercase; */
+    text-align: center;
+    letter-spacing: 3px;
+    word-spacing: 5px;
+    position: relative;
+}
+
+/* .CycleDay:nth-child(0) {
+    transform: translate(200px)
+} */
+/* .CycleDay:nth-child(2) {
+    transform: translate();
+}
+.CycleDay:nth-child(3) {
+    transform: translate()
+}
+.CycleDay:nth-child(4) {
+    transform: translate(900%, 200%);
+}
+.CycleDay:nth-child(5) {
+    transform: translateX(200%);
+    transform: translateY(200%);
+} */

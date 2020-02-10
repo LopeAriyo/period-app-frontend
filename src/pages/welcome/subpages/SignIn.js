@@ -3,6 +3,9 @@ import { Link } from "react-router-dom/";
 
 import SignInForm from "../../../components/secondary/SignInForm";
 
+//TODO
+//+ Add sign in with socials functionality
+
 const SignIn = ({ signIn, history }) => (
     <div className="SignIn">
                 <h1>Sign In </h1>

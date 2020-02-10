@@ -1,6 +1,9 @@
 import React from "react";
 
 import API from "../../API";
+
+//TODO
+//+ Add forgot password functionality
 class SignInForm extends React.Component {
     state = {
         email: "",
@@ -9,9 +12,10 @@ class SignInForm extends React.Component {
 
     handleSubmit = () => {
         API.signIn(this.state.email, this.state.password)
+            // .then(console.log)
             .then(data => {
                 if (data.error) throw Error(data.error);
-                this.props.signIn(data);
+                this.props.signIn(data); 
                 this.props.history.push("/profile");
             })
             .catch(error => alert(error));

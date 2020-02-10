@@ -7,29 +7,25 @@ import API from "./API";
 
 import Welcome from "./pages/welcome/Welcome";
 import SignIn from "./pages/welcome/subpages/SignIn";
-import SignUp from "./pages/welcome/subpages/SignUp";
+// import SignUp from "./pages/welcome/subpages/SignUp";
 
 import Home from "./pages/home/Home";
 import Cycle from "./pages/home/subpages/Cycle";
-import Journal from "./pages/home/subpages/Journal";
-import Insights from "./pages/home/subpages/Insights";
+// import Journal from "./pages/home/subpages/Journal";
+// import Insights from "./pages/home/subpages/Insights";
 import Profile from "./pages/home/subpages/Profile";
 
 import Error404 from "./pages/errors/Error404";
 
-//TODO
-//+ Introduce 404 page and redo route
-
 //QUESTIONS
 //? Why does react router not work if you define a new route in a sub component
 class App extends React.Component {
-
     state = {
         email: null
     };
 
     signIn = data => {
-        this.setState({ email: data.email });
+        this.setState({ email: data.email});
         localStorage.token = data.token;
     };
 
@@ -44,7 +40,7 @@ class App extends React.Component {
                 .then(data => {
                     if (data.error) throw Error(data.error);
                     this.signIn(data);
-                    this.props.history.push("/inventory");
+                    this.props.history.push("/profile");
                 })
                 .catch(error => alert(error));
         }
@@ -57,7 +53,13 @@ class App extends React.Component {
                     {this.state.email === null ? (
                         <Route exact path="/" component={Welcome} />
                     ) : (
-                        <Route exact path="/" component={Home} />
+                        <Route
+                            exact
+                            path="/"
+                            component={props => (
+                                <Home {...props} email={this.state.email} signOut={this.signOut} />
+                            )}
+                        />
                     )}
                     <Route
                         path="/signin"
@@ -65,29 +67,28 @@ class App extends React.Component {
                             <SignIn {...props} signIn={this.signIn} />
                         )}
                     />
-                    <Route
+                    {/* <Route
                         path="/signup"
                         component={props => <SignUp {...props} />}
-                    />
-
+                    /> */}
                     <Route
                         path="/cycle"
                         component={props => (
                             <Cycle {...props} email={this.state.email} />
                         )}
                     />
-                    <Route
+                    {/* <Route
                         path="/journal"
                         component={props => (
                             <Journal {...props} email={this.state.email} />
                         )}
-                    />
-                    <Route
+                    /> */}
+                    {/* <Route
                         path="/insights"
                         component={props => (
                             <Insights {...props} email={this.state.email} />
                         )}
-                    />
+                    /> */}
                     <Route
                         path="/profile"
                         component={props => (

@@ -1,8 +1,8 @@
 import React from "react";
-import { Route, Link } from "react-router-dom/";
+import { Link } from "react-router-dom/";
 
-import SignIn from "./subpages/SignIn";
-import SignUp from "./subpages/SignUp";
+// import SignIn from "./subpages/SignIn";
+// import SignUp from "./subpages/SignUp";
 
 // Todo
 //+ Add a logo
@@ -21,9 +21,6 @@ class Welcome extends React.Component {
                     <button>Sign Up</button>
                 </Link>
                 <br />
-                {/* <Switch> */}
-
-                {/* </Switch> */}
             </div>
         );
     }

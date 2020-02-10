@@ -104,7 +104,7 @@ input {
     font-size: 110%;
     font-size: inherit;
     font-weight: 700;
-    text-transform: uppercase;
+    /* text-transform: uppercase; */
     text-align: center;
     letter-spacing: 3px;
     word-spacing: 5px;
