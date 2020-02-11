@@ -1,0 +1,37 @@
+.ProfileCard {
+    display: inline-block;
+    cursor: pointer;
+    align-items: flex-start;
+    width: 90vw;
+    height: 20vh;
+    background: #FADCCD;
+    position: relative;
+    margin: 0em;
+    margin: 10px 30px;
+    padding: 1px 7px 2px;
+    letter-spacing: 3px;
+    word-spacing: 5px;
+    text-align: center;
+    font-size: inherit;
+    text-transform: uppercase;
+    font-weight: 700;
+    border-width: 1px;
+    border-style: solid;
+    border-color: rgb(216, 216, 216) rgb(209, 209, 209) rgb(186, 186, 186);
+    border-image: initial;
+    border: none;
+    border-radius: 40px;
+}
+
+.icon{
+    height: 15%;
+}
+
+#user-icon{
+    height: 100%;
+}
+
+.user-details{
+    padding: 10px;
+    color:  #96285f;
+}

@@ -14,7 +14,7 @@ class Home extends React.Component {
     render() {
         return (
             <div className="Page">
-                <h1>Welcome {this.props.email}</h1>
+                <h1>Welcome {this.props.user.first_name}</h1>
                 <button onClick={this.props.signOut}>Sign Out</button>
                 {/* <Switch>
                     <Route

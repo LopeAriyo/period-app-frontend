@@ -21,11 +21,12 @@ import Error404 from "./pages/errors/Error404";
 //? Why does react router not work if you define a new route in a sub component
 class App extends React.Component {
     state = {
-        email: null
+        user: null
     };
 
     signIn = data => {
-        this.setState({ email: data.email});
+        this.setState({ user: data});
+        console.log(data)
         localStorage.token = data.token;
     };
 
@@ -40,7 +41,7 @@ class App extends React.Component {
                 .then(data => {
                     if (data.error) throw Error(data.error);
                     this.signIn(data);
-                    this.props.history.push("/profile");
+                    this.props.history.push("/");
                 })
                 .catch(error => alert(error));
         }
@@ -50,14 +51,14 @@ class App extends React.Component {
         return (
             <div className="App">
                 <Switch>
-                    {this.state.email === null ? (
+                    {this.state.user === null ? (
                         <Route exact path="/" component={Welcome} />
                     ) : (
                         <Route
                             exact
                             path="/"
                             component={props => (
-                                <Home {...props} email={this.state.email} signOut={this.signOut} />
+                                <Home {...props} user={this.state.user.user} signOut={this.signOut} />
                             )}
                         />
                     )}
@@ -74,7 +75,7 @@ class App extends React.Component {
                     <Route
                         path="/cycle"
                         component={props => (
-                            <Cycle {...props} email={this.state.email} />
+                            <Cycle {...props} user={this.state.user.user} />
                         )}
                     />
                     {/* <Route
@@ -92,7 +93,7 @@ class App extends React.Component {
                     <Route
                         path="/profile"
                         component={props => (
-                            <Profile {...props} email={this.state.email} />
+                            <Profile {...props} user={this.state.user.user} />
                         )}
                     />
                     <Route component={Error404} />

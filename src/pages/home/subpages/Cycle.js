@@ -6,7 +6,7 @@ import "./Cycle.css";
 import NavigationBar from "../../../components/primary/NavigationBar.js";
 
 //TODO
-//+ get the cycle start date 
+//+ get the cycle start date
 //+ get the cycle End Date
 //+ calculate the cycle length = (sd - ed)
 //+ create an array to represent the cycle
@@ -16,43 +16,37 @@ import NavigationBar from "../../../components/primary/NavigationBar.js";
 //+ each circle also needs a degree so that it appears as a border around the main circle
 class Cycle extends React.Component {
     state = {
-        cycleStartDate: null,
-        cycleEndDate: null,
-        cycleLength: null,
+        cycleStartDate: "02/01/2020",
+        cycleEndDate: "03/02/2020",
         cycle: []
     };
 
-    getStartDate = () => {
-        this.setState({ cycleStartDate: new Date("02/01/2020") });
-    };
-
-    getEndDate = () => {
-        this.setState({ cycleEndDate: new Date("03/02/2020") });
-    };
+    //Reminder
+    //& cycleStartDate and cycleEndDate will come from props
 
     getCycleLength = () => {
+        let startDate = new Date(this.state.cycleStartDate);
+        let endDate = new Date(this.state.cycleEndDate);
 
         let cycleLength =
-            (this.state.cycleEndDate.getTime() -
-                this.state.cycleStartDate.getTime()) /
-            (1000 * 3600 * 24);
-        this.setState({ cycleLength: cycleLength });
+            (endDate.getTime() - startDate.getTime()) / (1000 * 3600 * 24);
+
+        return cycleLength;
     };
 
     createCycle = () => {
+        let cycleLength = this.getCycleLength();
+        let cycle = [];
 
-        
-        let cycle = new Array(this.state.cycleLength);
-
-        for (var i = 0; i < this.state.cycleLength; i++) {
-            cycle[i] = (i + 1).toString();
+        for (let i = 0; i <= cycleLength; i++) {
+            cycle.push((i + 1).toString());
         }
 
         this.setState({ cycle: cycle });
     };
 
-    componentDidMount(){
-        this.getEndDate()
+    componentDidMount() {
+        this.createCycle();
     }
 
     render() {
@@ -61,7 +55,10 @@ class Cycle extends React.Component {
                 <h3>Your Cycle</h3>
                 <div className="CycleCircle">
                     {this.state.cycle.map((day, index) => (
-                        <div className="CycleDay" key={index}> Day {day} </div>
+                        <div className="CycleDay" key={index}>
+                            {" "}
+                            Day {day}{" "}
+                        </div>
                     ))}
                 </div>
                 <NavigationBar />

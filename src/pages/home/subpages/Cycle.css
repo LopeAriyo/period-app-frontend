@@ -1,13 +1,11 @@
 .CycleCircle {
     width: 500px;
     height: 500px;
-    background:#96285f;
-    color: #96285f;
+    background:none;
     border-radius: 50%;
-    border: 2px solid #96285f;
+    border: 30px solid #96285f;
     margin: 10px 30px;
-    border: none;
-    font-size: 110%;
+    /* font-size: 110%; */
     font-size: inherit;
     font-weight: 700;
     /* text-transform: uppercase; */
@@ -25,7 +23,7 @@
     border-radius: 50%;
     cursor: pointer;
     margin: 10px 30px;
-    font-size:20px;
+    font-size:15px;
     font-weight: 700;
     /* text-transform: uppercase; */
     text-align: center;
@@ -35,11 +33,12 @@
 }
 
 /* .CycleDay:nth-child(0) {
-    transform: translate(200px)
+    transform: translate(10)
 } */
 /* .CycleDay:nth-child(2) {
-    transform: translate();
-}
+    transform: translate(90deg);
+} */
+/*
 .CycleDay:nth-child(3) {
     transform: translate()
 }
